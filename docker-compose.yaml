@@ -1,0 +1,36 @@
+services:
+  db:
+    image: postgres:16.2
+    restart: always 
+    volumes:
+      - ./data/db:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+  web:
+    build: .
+    command: python /code/mysite/manage.py runserver 0.0.0.0:8000 --settings=mysite.settings.local
+    restart: always
+    environment:
+      - POSTGRES_DB_PASSWORD=postgres
+      - POSTGRES_DB_NAME=postgres
+      - POSTGRES_DB_USER=postgres
+      - POSTGRES_DB_HOST=db
+      - POSTGRES_DB_PORT=5432
+    volumes:
+      - .:/code
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+    
+  nginx:
+    image: nginx:1.25.5
+    restart: always 
+    volumes:
+      - ./config/nginx:/etc/nginx/templates
+      - .:/code
+    ports: 
+      - "80:80"
+      - "443:443"
