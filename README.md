@@ -1,6 +1,6 @@
 # Django-Blog-Application
 > [!NOTE]
-> Overview: Blog application where users can create and view posts on the platform, comment, and search for related posts.
+> Overview: A blog application was designed and developed to allow users to efficiently explore and view detailed posts. Included features like SEO-friendly URLs, pagination, and a comment system to boost user engagement. A third-party tagging system was integrated for enhanced content categorization, and full-text search was implemented to improve search functionality. The application was deployed using Docker Compose.
 
 
 ## Requirements
@@ -16,16 +16,16 @@
 
 
 ## Run project in local development
-```
+```bash
 # Setup database (PostGreSQL and create .env file)
-git clone git@github.com:lhb-10/Django-Blog-Application.git
+git clone https://github.com/Bombbom/Blog-application.git
 pip install -r requirements.txt
 cd mysite/
 python3 manage.py runserver --settings=mysite.settings.local
 ```
 ## Quick deploy
-```
-git clone git@github.com:lhb-10/Django-Blog-Application.git
+```bash
+git clone https://github.com/Bombbom/Blog-application.git
 docker compose up
 ```
 ## Project Explanation Overview
