@@ -20,7 +20,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-632h6iqn4vea2=xam1jtrun401t=qyoexka(53_qznz$6rw!bt'
+SECRET_KEY='django-insecure-632h6iqn4vea2=xam1jtrun401t=qyoexka(53_qznz$6rw!bt'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -31,7 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'account.apps.AccountConfig',
+    'account',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -44,6 +44,17 @@ INSTALLED_APPS = [
     'debug_toolbar',
     
 ]
+# Appliaction definition
+
+
+# THIRD_PARTY_APPS
+
+# DJANGO_APPS
+
+# CUSTOM_APPS
+
+# INSTALLED_APPS = THIRD_PARTY_APPS + DJANGO_APPS + CUSTOM_APPS
+
 
 INTERNAL_IPS = [
 '127.0.0.1',
@@ -65,7 +76,7 @@ ROOT_URLCONF = 'mysite.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [], # Add template path directory
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -84,6 +95,7 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
+## SQLite3
 # DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.sqlite3',
@@ -91,6 +103,7 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 #     }
 # }
 
+## PostgreSQL
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
@@ -138,15 +151,15 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
 STATIC_URL = 'static/'
-
+MEDIA_URL = 'media/'
+MEDIA_ROOT = BASE_DIR / 'media'
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+# Setting Login/Logout defaul url
 LOGIN_REDIRECT_URL = '/blog/'
 LOGIN_URL = '/account/login'
 LOGOUT_URL = '/account/logout'
 
-MEDIA_URL = 'media/'
-MEDIA_ROOT = BASE_DIR / 'media'
