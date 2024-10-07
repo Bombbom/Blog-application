@@ -13,6 +13,7 @@
 > 
 > Video demo
 
+
 ## Requirements
 | Packages | Description |
 |----------|-------------|
@@ -26,20 +27,20 @@
 
 * Using the Django authentication framework: `django.contrib.auth`
 
-## Run project in local development
-```bash
-# Setup database (PostGreSQL and create .env file)
-git clone https://github.com/Bombbom/Blog-application.git
-pip install -r requirements.txt
-cd mysite/
-python3 manage.py runserver --settings=mysite.settings.local
-```
-## Quick deploy
-```bash
-git clone https://github.com/Bombbom/Blog-application.git
-docker compose up
-```
-## Project Explanation Overview
+
+## Architecture and Technology
+> [!NOTE]
+> 
+> Overall Architecture: Describe the general architecture of the application
+> 
+> Technologies Used: Backend, Database, ...
+> 
+> Third-party Packages: List and explain the external packages you used
+
+## Directory Structure
+
+## Core Features
+
 - Project name: `mysite`
 - Project application: `account`, `blog`
 - Account:
@@ -56,7 +57,9 @@ docker compose up
   - Search post 
   - Create Post 
   - ....
-## Features demo
+
+
+**Features demo**
 
 ![alt text](Image/admin.png)
 
@@ -80,14 +83,42 @@ docker compose up
 
 ![alt text](Image/comment.png)
 
+## Run project in local development
+```bash
+# Setup database (PostGreSQL and create .env file)
+git clone https://github.com/Bombbom/Blog-application.git
+pip install -r requirements.txt
+cd mysite/
+python3 manage.py runserver --settings=mysite.settings.local
+python3 manage.py migrate
+python3 manage.py makemigrations blog account
+python3 manage.py migrate
+```
 
+**Quick deploy**
+
+
+
+
+
+## Challenges and Lessons Learned
+> [!TIP]
+> 
+> The basic request/response cycle of django application.
+> 
+> Django's built-in authentication 
+> 
+> QuerySets 
+> 
+> Basic Django: Models, Views, Templates, URLs, Admin Site.
 
 
 ## Future
 - [ ] Write Test for projects
 - [ ] Add security feature in projects
 - [ ] Pentesting the projects.
-- [ ] Update front-end (e.g using Bootstrap, ...)
+- [ ] Update front-end (e.g using Bootstrap v5, ...)
+- [ ] Clear form after create new post
 - [ ] Update deploy
 - [ ] Deploy a project in Cloud (e.g Azure, Heroku, ...)
 

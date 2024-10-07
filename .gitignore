@@ -4,3 +4,4 @@ db.sqlite3
 migrations
 .env
 react_front_end/
+data/
